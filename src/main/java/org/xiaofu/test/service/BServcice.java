@@ -16,12 +16,16 @@ public class BServcice {
     public static AConfig aConfig;
 
     @Autowired
-    public void setType(AConfig aConfig) {
+    public void setAConfig(AConfig aConfig) {
         BServcice.aConfig = aConfig;
     }
 
     public String getName(String name) {
-        return "BServcice：" + name;
+        return "BServcice："  + name;
+    }
+
+    public static String getName() {
+        return "BServcice："  + aConfig.getType("static");
     }
 
 }

@@ -16,12 +16,14 @@ import org.xiaofu.test.dto.AClassDTO;
 @Service
 public class AServcice {
     private String name;
-
-    @Autowired
     private BServcice bServcice;
+    private BConfig bconfig;
 
     @Autowired
-    private BConfig bconfig;
+    public AServcice(BServcice bServcice, BConfig bconfig) {
+        this.bServcice = bServcice;
+        this.bconfig = bconfig;
+    }
 
     public AServcice(String name) {
         this.name = name;
@@ -43,6 +45,9 @@ public class AServcice {
 
         String bName = bServcice.getName(name);
         System.out.println(bName);
+
+        String name1 = BServcice.getName();
+        System.out.println(name1);
         return AClassDTO.builder(name, age);
     }
 }
